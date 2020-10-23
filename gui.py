@@ -1,5 +1,6 @@
-
+import random, fileinput
 import tkinter as tk
+
 root = tk.Tk()
 root.title('background image')
 #fname should be the file name of the image in working directory
@@ -18,10 +19,18 @@ cv.create_image(0,0,image=bg_image,anchor='nw')
 
 #add canvas text
 cv.create_text(15,20,text="Hello World",fill="red",anchor='nw')
-
+#random line
+def idea():
+    textidea=None
+    for line in fileinput.input('textlist.txt'):
+        if random.randrange(fileinput.lineno())==0:
+            textidea = line
+    cv.create_text(15,60,text=textidea,fill="white",anchor='nw')
+    
 #add buttons
-btn1 = tk.Button(cv, text="Click")
+btn1 = tk.Button(cv, text="Click", command=idea)
 btn1.pack(side='left', padx=10, pady=5, anchor='sw')
 btn2 = tk.Button(cv, text="Quit", command=root.destroy)
 btn2.pack(side='left',padx=10,pady=5,anchor='sw')
 root.mainloop()
+
