@@ -26,7 +26,11 @@ mainframe=tk.Frame(root)
 def inspirations():
     top = Toplevel(root)
     top.title("Inspiration")
-    top.pack(side='left', padx=10, pady=20, anchor='sw')
+    w2 = 500
+    h2 = 300
+    top.geometry("%dx%d+50+30"%(w2,h2))
+    cv2 = tk.Canvas(width=w2, height = h2)
+    cv2.pack(side='top', fill='both', expand='yes')
     def idea():
         textidea=None
         for line in fileinput.input('textlist.txt'):
