@@ -1,5 +1,6 @@
 import random, fileinput
 import tkinter as tk
+import webbrowser
 from tkinter import *
 
 root = tk.Tk()
@@ -24,30 +25,28 @@ mainframe=tk.Frame(root)
 #new window for inspirations
 def inspirations():
     top = Toplevel(root)
-    top.geometry=("100x100")
     top.title("Inspiration")
+    top.pack(side='left', padx=10, pady=20, anchor='sw')
     def idea():
         textidea=None
         for line in fileinput.input('textlist.txt'):
             if random.randrange(fileinput.lineno())==0:
                 textidea=line
         entrytext=tk.Text(top)
+        entrytext.pack(side='right', padx=10, pady=20, anchor='center')
         entrytext.insert(INSERT, textidea)
         entrytext.insert(END, "Or press the Inspire Me button again for another idea!")
-        entrytext.pack()
     idea()
         
     top.mainloop()
 
+#new directory window
+def directory():
+    webbrowser.open('https://www.nhs.uk/conditions/stress-anxiety-depression/mental-health-helplines/')
+    
 #add canvas text
-cv.create_text(15,20,text="Hey there daydreamer.",fill="white",anchor='nw')
-cv.create_text(15,40,text="Need help with something?", fill="white",anchor='nw')
-
-
-#clear the text
-def reset():
-    for label in idea():
-        label.destroy()
+cv.create_text(15,20,text="Hey there daydreamer.",fill="#32335E",anchor='nw')
+cv.create_text(15,40,text="Need help with something?", fill="#32335E",anchor='nw')
 
 # get help
 def needhelp():
@@ -56,7 +55,7 @@ def needhelp():
 #add buttons
 btn1 = tk.Button(cv, text="Inspire Me", command=inspirations)
 btn1.pack(side='left', padx=10, pady=5, anchor='sw')
-btn2 = tk.Button(cv, text="I Need Help", command=needhelp)
+btn2 = tk.Button(cv, text="I Need Help", command=directory)
 btn2.pack(side='left',padx=10,pady=5,anchor='sw')
 btn4 = tk.Button(cv, text="Quit", command=root.destroy)
 btn4.pack(side='left',padx=10,pady=5,anchor='sw')
