@@ -1,7 +1,9 @@
 # daydreamer
 Mini mindfulness app for self-care.
 <br><br>
-Background image credit:https://www.pexels.com/photo/fogs-on-green-mountain-1054222/
+Background image credit:<br>
+https://www.pexels.com/photo/fogs-on-green-mountain-1054222/ <br>
+https://www.pexels.com/photo/beach-calm-clouds-coast-457881/
 <br>
 Background image license: Free to use, no attribution required
 <br><br>

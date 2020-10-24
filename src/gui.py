@@ -28,8 +28,11 @@ def inspirations():
     top.title("Inspiration")
     w2 = 500
     h2 = 300
+    fname2="bg2.gif"
+    bg_image2= tk.PhotoImage(file=fname2)
     top.geometry("%dx%d+50+30"%(w2,h2))
     cv2 = tk.Canvas(master=top, width=w2, height = h2)
+    cv2.create_image(0,0,image=bg_image2, anchor='nw')
     cv2.pack(side='top', fill='y', expand='no')
     def idea():
         textidea=None
