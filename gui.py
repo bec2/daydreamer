@@ -29,19 +29,16 @@ def inspirations():
     w2 = 500
     h2 = 300
     top.geometry("%dx%d+50+30"%(w2,h2))
-    cv2 = tk.Canvas(width=w2, height = h2)
-    cv2.pack(side='top', fill='both', expand='yes')
+    cv2 = tk.Canvas(master=top, width=w2, height = h2)
+    cv2.pack(side='top', fill='y', expand='no')
     def idea():
         textidea=None
         for line in fileinput.input('textlist.txt'):
             if random.randrange(fileinput.lineno())==0:
                 textidea=line
-        entrytext=tk.Text(top)
-        entrytext.pack(side='right', padx=10, pady=20, anchor='center')
-        entrytext.insert(INSERT, textidea)
-        entrytext.insert(END, "Or press the Inspire Me button again for another idea!")
+        cv2.create_text(15,20,text=textidea, fill="black", anchor='nw')
+        cv2.create_text(15,40,text='Or press the button again for a new idea!', fill="black", anchor='nw')
     idea()
-        
     top.mainloop()
 
 #new directory window
